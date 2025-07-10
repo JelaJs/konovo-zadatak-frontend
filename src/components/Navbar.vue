@@ -15,7 +15,6 @@ import { onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { isLoggedIn, updateAuthStatus } from '@/composables/useAuthStatus'
 
-//const isLoggedIn = ref(false)
 const router = useRouter()
 
 const logOut = function () {
