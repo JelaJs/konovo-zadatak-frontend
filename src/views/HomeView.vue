@@ -12,7 +12,7 @@ const router = useRouter()
 
 onMounted(() => {
   const token = localStorage.getItem('jwt_token')
-  if (token) {
+  if (!token) {
     router.push({ name: 'login' })
   }
 })
