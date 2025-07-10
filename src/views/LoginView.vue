@@ -16,12 +16,13 @@
 import { useRouter } from 'vue-router'
 import { onMounted, ref } from 'vue'
 import axios from 'axios'
+import { useRedirectIfAuthenticated } from '@/composables/useRedirectIfAuthenticated'
+import { updateAuthStatus } from '@/composables/useAuthStatus'
 
 const router = useRouter()
 const username = ref('')
 const error = ref('')
 const password = ref('')
-import { useRedirectIfAuthenticated } from '@/composables/useRedirectIfAuthenticated'
 
 const { redirect } = useRedirectIfAuthenticated()
 
@@ -39,6 +40,7 @@ const login = () => {
       if (token) {
         localStorage.setItem('jwt_token', token)
         router.push({ name: 'home' })
+        updateAuthStatus()
       }
     })
     .catch((err) => {

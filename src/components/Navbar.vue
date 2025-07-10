@@ -13,8 +13,9 @@
 import { RouterLink } from 'vue-router'
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
+import { isLoggedIn } from '@/composables/useAuthStatus'
 
-const isLoggedIn = ref(false)
+//const isLoggedIn = ref(false)
 const router = useRouter()
 
 const logOut = function () {
