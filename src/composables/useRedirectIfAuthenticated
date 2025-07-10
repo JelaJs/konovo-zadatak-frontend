@@ -1,0 +1,14 @@
+import { useRouter } from 'vue-router'
+
+export function useRedirectIfAuthenticated() {
+  const router = useRouter()
+
+  const redirect = () => {
+    const token = localStorage.getItem('jwt_token')
+    if (token) {
+      router.push({ name: 'home' })
+    }
+  }
+
+  return { redirect }
+}

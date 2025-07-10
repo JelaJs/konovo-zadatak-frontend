@@ -21,6 +21,9 @@ const router = useRouter()
 const username = ref('')
 const error = ref('')
 const password = ref('')
+import { useRedirectIfAuthenticated } from '@/composables/useRedirectIfAuthenticated'
+
+const { redirect } = useRedirectIfAuthenticated()
 
 const login = () => {
   //Napomena koristio sam herokuapp kako bih zaobisao cors validaciju, ovo je bilo jednostavnije resenje kako ne bih pisao ceo backend proxy
@@ -31,7 +34,6 @@ const login = () => {
       password: password.value,
     })
     .then((response) => {
-      console.log(response)
       const token = response.data.token
 
       if (token) {
@@ -45,9 +47,6 @@ const login = () => {
 }
 
 onMounted(() => {
-  const token = localStorage.getItem('jwt_token')
-  if (token) {
-    router.push({ name: 'home' })
-  }
+  redirect()
 })
 </script>

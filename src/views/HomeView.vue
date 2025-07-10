@@ -6,14 +6,11 @@
 
 <script setup>
 import { onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRedirectIfNotAuthenticated } from '@/composables/useRedirectIfNotAuthenticated'
 
-const router = useRouter()
+const { redirect } = useRedirectIfNotAuthenticated()
 
 onMounted(() => {
-  const token = localStorage.getItem('jwt_token')
-  if (!token) {
-    router.push({ name: 'login' })
-  }
+  redirect('login')
 })
 </script>
