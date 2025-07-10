@@ -1,41 +1,15 @@
-# vue-project
+# Autentifikacija:
 
-This template should help get you started developing with Vue 3 in Vite.
+Razviti formu za prijavu korisnika koja direktno komunicira sa eksternim login API-jem.
 
-## Recommended IDE Setup
+Nakon uspešne prijave, JWT token treba sačuvati i korisnika preusmeriti na stranicu sa proizvodima.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Aplikacija treba da jasno prikazuje poruke o grešci u slučaju neuspešne prijave.
 
-## Customize configuration
+# Prikaz proizvoda:
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+Pre pristupa listi proizvoda, aplikacija mora proveriti postojanje JWT tokena i preusmeriti korisnika na login stranicu ako token nije prisutan.
 
-## Project Setup
+Dinamički prikazati listu proizvoda, dohvatajući ih od sopstvenog backend API-ja (uz slanje JWT tokena za autorizaciju).
 
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+Omogućiti korisniku opciju "Odjavi se" koja će obrisati JWT token i vratiti ga na login stranicu.
