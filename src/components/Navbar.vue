@@ -1,9 +1,22 @@
 <template>
-  <header>
-    <div>
-      <nav>
-        <RouterLink v-if="!isLoggedIn" :to="{ name: 'login' }">Login</RouterLink>
-        <RouterLink v-if="isLoggedIn" @click="logOut" :to="{ name: 'login' }">Logout</RouterLink>
+  <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3">
+      <nav class="flex justify-end space-x-4">
+        <RouterLink
+          v-if="!isLoggedIn"
+          :to="{ name: 'login' }"
+          class="text-blue-600 hover:underline"
+        >
+          Login
+        </RouterLink>
+        <RouterLink
+          v-if="isLoggedIn"
+          @click="logOut"
+          :to="{ name: 'login' }"
+          class="text-red-600 hover:underline"
+        >
+          Logout
+        </RouterLink>
       </nav>
     </div>
   </header>
