@@ -11,9 +11,9 @@
 
 <script setup>
 import { RouterLink } from 'vue-router'
-import { ref, onMounted } from 'vue'
+import { onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { isLoggedIn } from '@/composables/useAuthStatus'
+import { isLoggedIn, updateAuthStatus } from '@/composables/useAuthStatus'
 
 //const isLoggedIn = ref(false)
 const router = useRouter()
@@ -21,6 +21,7 @@ const router = useRouter()
 const logOut = function () {
   localStorage.removeItem('jwt_token')
   router.push({ name: 'login' })
+  updateAuthStatus()
 }
 
 onMounted(() => {
